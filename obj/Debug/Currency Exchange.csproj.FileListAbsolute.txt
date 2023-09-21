@@ -1,0 +1,11 @@
+C:\Users\User\Source\Repos\Currency Exchange\bin\Debug\Currency Exchange.exe.config
+C:\Users\User\Source\Repos\Currency Exchange\bin\Debug\Currency Exchange.exe
+C:\Users\User\Source\Repos\Currency Exchange\bin\Debug\Currency Exchange.pdb
+C:\Users\User\Source\Repos\Currency Exchange\obj\Debug\Currency Exchange.csproj.AssemblyReference.cache
+C:\Users\User\Source\Repos\Currency Exchange\obj\Debug\Currency Exchange.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Source\Repos\Currency Exchange\obj\Debug\Currency_Exchange.Form1.resources
+C:\Users\User\Source\Repos\Currency Exchange\obj\Debug\Currency_Exchange.Properties.Resources.resources
+C:\Users\User\Source\Repos\Currency Exchange\obj\Debug\Currency Exchange.csproj.GenerateResource.cache
+C:\Users\User\Source\Repos\Currency Exchange\obj\Debug\Currency Exchange.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\Currency Exchange\obj\Debug\Currency Exchange.exe
+C:\Users\User\Source\Repos\Currency Exchange\obj\Debug\Currency Exchange.pdb
