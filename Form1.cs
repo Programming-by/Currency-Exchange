@@ -22,16 +22,32 @@ namespace Currency_Exchange
         float JordainanDinarRate = 0.708000f;
 
 
-        float ConvertToUSD(float Amount)
+        float ConvertToUSD(float Amount, float Rate)
         {
-            return (float)(Amount / USDollarRate);
+            return (float)(Amount / Rate);
+        }
+
+        public float GetCurrencyRate()
+        {
+            if (cbFirstCurrency.SelectedItem == "US Dollar")
+            {
+                return USDollarRate;
+            }
+          
+            if (cbFirstCurrency.SelectedItem == "Egyption Pound")
+            {
+                return EgyptionPoundRate;
+            }
+            return JordainanDinarRate;
         }
 
 
         public float ConvertToOtherCurrency(float Amount)
         {
 
-            float AmountInUSD = ConvertToUSD(Amount);
+            float CurrencyRate = GetCurrencyRate();
+
+            float AmountInUSD = ConvertToUSD(Amount,CurrencyRate);
 
 
             if (cbSecondCurrency.SelectedItem == "US Dollar") 
@@ -55,7 +71,7 @@ namespace Currency_Exchange
         {
             if (txtAmount.Text ==  "")
             {
-                MessageBox.Show("Please Enter Amount you want to exchange");
+                MessageBox.Show("Please Enter Amount you want to exchange" , "Error Message" , MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
 
             }
@@ -63,11 +79,11 @@ namespace Currency_Exchange
             if (cbFirstCurrency.SelectedItem == cbSecondCurrency.SelectedItem)
             {
              
-                MessageBox.Show("You can't enter the same Currency");
+                MessageBox.Show("You can't enter the same Currency", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            lblMoneyAfterConvert.Text = ConvertToOtherCurrency(Convert.ToSingle(txtAmount.Text)).ToString();
+            lblMoneyAfterConvert.Text = ConvertToOtherCurrency(Convert.ToSingle(txtAmount.Text)) + " " + cbSecondCurrency.Text;
             lblMoneyAfterConvert.Visible = true;
 
         }
