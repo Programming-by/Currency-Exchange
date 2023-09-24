@@ -22,11 +22,6 @@ namespace Currency_Exchange
         float JordainanDinarRate = 0.708000f;
 
 
-        float ConvertToUSD(float Amount, float Rate)
-        {
-            return (float)(Amount / Rate);
-        }
-
         public float GetCurrencyRate()
         {
             if (cbFirstCurrency.SelectedItem.ToString() == "US Dollar")
@@ -40,15 +35,17 @@ namespace Currency_Exchange
             }
             return JordainanDinarRate;
         }
-
-
+        float ConvertToUSD(float Amount, float Rate)
+        {
+            return (float)(Amount / Rate);
+        }
+        
         public float ConvertToOtherCurrency(float Amount)
         {
 
             float CurrencyRate = GetCurrencyRate();
 
             float AmountInUSD = ConvertToUSD(Amount,CurrencyRate);
-
 
             if (cbSecondCurrency.SelectedItem.ToString() == "US Dollar") 
             {
@@ -63,9 +60,6 @@ namespace Currency_Exchange
             return (float)(AmountInUSD * JordainanDinarRate);
 
         }
-
-
-   
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
@@ -86,6 +80,17 @@ namespace Currency_Exchange
             lblMoneyAfterConvert.Text = ConvertToOtherCurrency(Convert.ToSingle(txtAmount.Text)) + " " + cbSecondCurrency.Text;
             lblMoneyAfterConvert.Visible = true;
 
+        }
+
+        public void SwitchCurrency()
+        {
+            string tmp = cbFirstCurrency.SelectedItem.ToString();
+            cbFirstCurrency.SelectedItem = cbSecondCurrency.SelectedItem;
+            cbSecondCurrency.SelectedItem = tmp;
+        }
+        private void btnSwitchCurrency_Click(object sender, EventArgs e)
+        {
+            SwitchCurrency();
         }
     }
 }

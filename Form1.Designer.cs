@@ -36,6 +36,7 @@
             this.cbSecondCurrency = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnSwitchCurrency = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConvert
@@ -117,11 +118,22 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "To";
             // 
+            // btnSwitchCurrency
+            // 
+            this.btnSwitchCurrency.Location = new System.Drawing.Point(669, 78);
+            this.btnSwitchCurrency.Name = "btnSwitchCurrency";
+            this.btnSwitchCurrency.Size = new System.Drawing.Size(134, 44);
+            this.btnSwitchCurrency.TabIndex = 10;
+            this.btnSwitchCurrency.Text = "Switch Currency";
+            this.btnSwitchCurrency.UseVisualStyleBackColor = true;
+            this.btnSwitchCurrency.Click += new System.EventHandler(this.btnSwitchCurrency_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(829, 450);
+            this.Controls.Add(this.btnSwitchCurrency);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbSecondCurrency);
@@ -147,6 +159,7 @@
         private System.Windows.Forms.ComboBox cbSecondCurrency;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnSwitchCurrency;
     }
 }
 
