@@ -29,12 +29,12 @@ namespace Currency_Exchange
 
         public float GetCurrencyRate()
         {
-            if (cbFirstCurrency.SelectedItem == "US Dollar")
+            if (cbFirstCurrency.SelectedItem.ToString() == "US Dollar")
             {
                 return USDollarRate;
             }
           
-            if (cbFirstCurrency.SelectedItem == "Egyption Pound")
+            if (cbFirstCurrency.SelectedItem.ToString() == "Egyption Pound")
             {
                 return EgyptionPoundRate;
             }
@@ -50,12 +50,12 @@ namespace Currency_Exchange
             float AmountInUSD = ConvertToUSD(Amount,CurrencyRate);
 
 
-            if (cbSecondCurrency.SelectedItem == "US Dollar") 
+            if (cbSecondCurrency.SelectedItem.ToString() == "US Dollar") 
             {
                 return AmountInUSD;
             }
 
-            if (cbSecondCurrency.SelectedItem == "Egyption Pound")
+            if (cbSecondCurrency.SelectedItem.ToString() == "Egyption Pound")
             {
                 return (float)(AmountInUSD * EgyptionPoundRate);
 
