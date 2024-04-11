@@ -17,80 +17,69 @@ namespace Currency_Exchange
             InitializeComponent();
         }
 
-        float USDollarRate = 1.000000f;
-        float EgyptionPoundRate = 24.591999f;
-        float JordainanDinarRate = 0.708000f;
-
-
-        public float GetCurrencyRate()
+        decimal USDollarRate = 1.000000m;
+        decimal EgyptianPoundRate = 24.591999m;
+        decimal JordanianDinarRate = 0.708000m;
+        private void Form1_Load(object sender, EventArgs e)
         {
-            if (cbFirstCurrency.SelectedItem.ToString() == "US Dollar")
-            {
-                return USDollarRate;
-            }
-          
-            if (cbFirstCurrency.SelectedItem.ToString() == "Egyption Pound")
-            {
-                return EgyptionPoundRate;
-            }
-            return JordainanDinarRate;
+            cbFirstCurrency.SelectedIndex = 0;
+            cbSecondCurrency.SelectedIndex = 1;
         }
-        float ConvertToUSD(float Amount, float Rate)
+        public decimal GetCurrencyRate(int CurrencyIndex)
         {
-            return (float)(Amount / Rate);
+            decimal[] CurrencyRate = { USDollarRate , EgyptianPoundRate, JordanianDinarRate };
+           
+            return CurrencyRate[CurrencyIndex];
         }
-        
-        public float ConvertToOtherCurrency(float Amount)
+        decimal ConvertToUSD(decimal Amount, decimal Rate)
         {
-
-            float CurrencyRate = GetCurrencyRate();
-
-            float AmountInUSD = ConvertToUSD(Amount,CurrencyRate);
-
-            if (cbSecondCurrency.SelectedItem.ToString() == "US Dollar") 
-            {
-                return AmountInUSD;
-            }
-
-            if (cbSecondCurrency.SelectedItem.ToString() == "Egyption Pound")
-            {
-                return (float)(AmountInUSD * EgyptionPoundRate);
-
-            }
-            return (float)(AmountInUSD * JordainanDinarRate);
-
+            return (Amount / Rate);
         }
+        public decimal ConvertToOtherCurrency(decimal Amount)
+        {
+            decimal CurrencyRate = GetCurrencyRate(cbFirstCurrency.SelectedIndex);
 
+            decimal AmountInUSD = ConvertToUSD(Amount,CurrencyRate);
+
+            switch (cbSecondCurrency.Text)
+            {
+                case "US Dollar":
+                    return AmountInUSD;
+                case "Egyptian Pound":
+                    return (AmountInUSD * EgyptianPoundRate);
+                case "Jordanian Dinar":
+                    return (AmountInUSD * JordanianDinarRate);
+                default:
+                    return AmountInUSD;
+            }
+        }
+        public void SwitchCurrency()
+        {
+            string tmp = cbFirstCurrency.Text.ToString();
+            cbFirstCurrency.Text = cbSecondCurrency.Text;
+            cbSecondCurrency.Text = tmp;
+        }
         private void btnConvert_Click(object sender, EventArgs e)
         {
-            if (txtAmount.Text ==  "")
+            if (string.IsNullOrEmpty(txtAmount.Text))
             {
                 MessageBox.Show("Please Enter Amount you want to exchange" , "Error Message" , MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-
             }
 
-            if (cbFirstCurrency.SelectedItem == cbSecondCurrency.SelectedItem)
+            if (cbFirstCurrency.Text == cbSecondCurrency.Text)
             {
-             
                 MessageBox.Show("You can't enter the same Currency", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            lblMoneyAfterConvert.Text = ConvertToOtherCurrency(Convert.ToSingle(txtAmount.Text)) + " " + cbSecondCurrency.Text;
+            decimal Amount = Convert.ToDecimal(txtAmount.Text);
+            lblMoneyAfterConvert.Text = ConvertToOtherCurrency(Amount) + " " + cbSecondCurrency.Text;
             lblMoneyAfterConvert.Visible = true;
-
-        }
-
-        public void SwitchCurrency()
-        {
-            string tmp = cbFirstCurrency.SelectedItem.ToString();
-            cbFirstCurrency.SelectedItem = cbSecondCurrency.SelectedItem;
-            cbSecondCurrency.SelectedItem = tmp;
         }
         private void btnSwitchCurrency_Click(object sender, EventArgs e)
         {
             SwitchCurrency();
+            lblMoneyAfterConvert.Visible = false;
         }
     }
 }

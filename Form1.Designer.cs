@@ -41,7 +41,7 @@
             // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(361, 227);
+            this.btnConvert.Location = new System.Drawing.Point(314, 228);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(125, 77);
             this.btnConvert.TabIndex = 0;
@@ -51,10 +51,10 @@
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(341, 159);
+            this.txtAmount.Location = new System.Drawing.Point(286, 168);
             this.txtAmount.Multiline = true;
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(163, 39);
+            this.txtAmount.Size = new System.Drawing.Size(175, 39);
             this.txtAmount.TabIndex = 2;
             // 
             // cbFirstCurrency
@@ -62,19 +62,20 @@
             this.cbFirstCurrency.FormattingEnabled = true;
             this.cbFirstCurrency.Items.AddRange(new object[] {
             "US Dollar",
-            "Egyption Pound",
+            "Egyptian Pound",
             "Jordanian Dinar"});
-            this.cbFirstCurrency.Location = new System.Drawing.Point(202, 89);
+            this.cbFirstCurrency.Location = new System.Drawing.Point(110, 93);
             this.cbFirstCurrency.Name = "cbFirstCurrency";
-            this.cbFirstCurrency.Size = new System.Drawing.Size(147, 24);
+            this.cbFirstCurrency.Size = new System.Drawing.Size(201, 24);
             this.cbFirstCurrency.TabIndex = 4;
             // 
             // lblMoneyAfterConvert
             // 
             this.lblMoneyAfterConvert.AutoSize = true;
-            this.lblMoneyAfterConvert.Location = new System.Drawing.Point(399, 354);
+            this.lblMoneyAfterConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoneyAfterConvert.Location = new System.Drawing.Point(348, 354);
             this.lblMoneyAfterConvert.Name = "lblMoneyAfterConvert";
-            this.lblMoneyAfterConvert.Size = new System.Drawing.Size(14, 16);
+            this.lblMoneyAfterConvert.Size = new System.Drawing.Size(26, 29);
             this.lblMoneyAfterConvert.TabIndex = 5;
             this.lblMoneyAfterConvert.Text = "0";
             this.lblMoneyAfterConvert.Visible = false;
@@ -82,9 +83,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(236, 173);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(185, 168);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
+            this.label1.Size = new System.Drawing.Size(80, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Amount";
             // 
@@ -93,34 +95,36 @@
             this.cbSecondCurrency.FormattingEnabled = true;
             this.cbSecondCurrency.Items.AddRange(new object[] {
             "US Dollar",
-            "Egyption Pound",
+            "Egyptian Pound",
             "Jordanian Dinar"});
-            this.cbSecondCurrency.Location = new System.Drawing.Point(470, 89);
+            this.cbSecondCurrency.Location = new System.Drawing.Point(402, 89);
             this.cbSecondCurrency.Name = "cbSecondCurrency";
-            this.cbSecondCurrency.Size = new System.Drawing.Size(147, 24);
+            this.cbSecondCurrency.Size = new System.Drawing.Size(201, 24);
             this.cbSecondCurrency.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(145, 92);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(35, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 16);
+            this.label2.Size = new System.Drawing.Size(57, 25);
             this.label2.TabIndex = 8;
             this.label2.Text = "From";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(419, 92);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(346, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 16);
+            this.label3.Size = new System.Drawing.Size(36, 25);
             this.label3.TabIndex = 9;
             this.label3.Text = "To";
             // 
             // btnSwitchCurrency
             // 
-            this.btnSwitchCurrency.Location = new System.Drawing.Point(669, 78);
+            this.btnSwitchCurrency.Location = new System.Drawing.Point(633, 82);
             this.btnSwitchCurrency.Name = "btnSwitchCurrency";
             this.btnSwitchCurrency.Size = new System.Drawing.Size(134, 44);
             this.btnSwitchCurrency.TabIndex = 10;
@@ -144,6 +148,7 @@
             this.Controls.Add(this.btnConvert);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
