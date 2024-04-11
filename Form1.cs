@@ -44,11 +44,11 @@ namespace Currency_Exchange
             switch (cbSecondCurrency.Text)
             {
                 case "US Dollar":
-                    return AmountInUSD;
+                    return Math.Round(AmountInUSD,2);
                 case "Egyptian Pound":
-                    return (AmountInUSD * EgyptianPoundRate);
+                    return Math.Round(AmountInUSD * EgyptianPoundRate,2);
                 case "Jordanian Dinar":
-                    return (AmountInUSD * JordanianDinarRate);
+                    return Math.Round(AmountInUSD * JordanianDinarRate,2);
                 default:
                     return AmountInUSD;
             }
@@ -72,6 +72,13 @@ namespace Currency_Exchange
                 MessageBox.Show("You can't enter the same Currency", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if (txtAmount.Text.StartsWith("."))
+            {
+                MessageBox.Show("Please enter A Digit", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             decimal Amount = Convert.ToDecimal(txtAmount.Text);
             lblMoneyAfterConvert.Text = ConvertToOtherCurrency(Amount) + " " + cbSecondCurrency.Text;
             lblMoneyAfterConvert.Visible = true;
@@ -80,6 +87,10 @@ namespace Currency_Exchange
         {
             SwitchCurrency();
             lblMoneyAfterConvert.Visible = false;
+        }
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.';
         }
     }
 }

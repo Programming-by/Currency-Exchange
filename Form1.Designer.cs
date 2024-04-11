@@ -56,6 +56,7 @@
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(175, 39);
             this.txtAmount.TabIndex = 2;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // cbFirstCurrency
             // 
